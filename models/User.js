@@ -16,7 +16,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    profilePhoto: String,
+    profileImg: String,
     jobs: [{ type: Schema.Types.ObjectId, ref: "Job" }],
   },
   {
