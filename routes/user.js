@@ -1,7 +1,7 @@
 const express = require("express");
 const router = new express.Router();
 const User = require("../models/User");
-const uploader = require("./../config/cloudinary");
+const upload = require("./../config/cloudinary");
 //  const requireAuth = require("../middlewares/requireAuth");
 
  //http:localhost:4000/api/user (READ)

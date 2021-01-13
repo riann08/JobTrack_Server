@@ -1,7 +1,7 @@
 const express = require("express");
 const router = new express.Router();
 const Job = require("../models/Job");
-//  const uploader = require("./../config/cloudinary");
+const upload = require("./../config/cloudinary");
 //  const requireAuth = require("../middlewares/requireAuth");
 
  //http:localhost:4000/api/job (READ)
@@ -20,7 +20,7 @@ router.get("/",     
 //http:localhost:4000/api/job (CREATE)
 router.post("/",     
 //requireAuth,
-//upload.single("profileImg"),
+upload.single("profileImg"),
 (req, res, next) => {
   Job.create(req.body)
     .then((newJobAdded) => {
@@ -34,7 +34,7 @@ router.post("/",     
 //http:localhost:4000/api/job (UPDATE)
 router.patch("/:id", 
 //requireAuth,
-//upload.single("profileImg"),
+upload.single("profileImg"),
 function (req, res, next) {
   Job.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((responseApi) => {
