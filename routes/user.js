@@ -2,11 +2,11 @@ const express = require("express");
 const router = new express.Router();
 const User = require("../models/User");
 const upload = require("./../config/cloudinary");
-const requireAuth = require("../middlewares/requireAuth");
+//const requireAuth = require("../middlewares/requireAuth");
 
  //http:localhost:4000/api/user (READ)
 router.get("/",     
-requireAuth,
+//requireAuth,
 (req, res, next) => {
   User.find()
     .then((users) => {
@@ -19,7 +19,7 @@ requireAuth,
 
 //http:localhost:4000/api/user (CREATE)
 router.post("/",     
-requireAuth,
+//requireAuth,
 upload.single("profileImg"),
 (req, res, next) => {
   User.create(req.body)
@@ -47,7 +47,7 @@ function (req, res, next) {
 
  //http:localhost:4000/api/user (DELETE)
 router.delete("/:id", 
-requireAuth, 
+//requireAuth, 
 function (req, res, next) {
  User.findOneAndDelete(req.params.id)
     .then((respondApi) => {
