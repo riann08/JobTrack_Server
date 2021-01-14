@@ -2,7 +2,7 @@ const express = require("express");
 const router = new express.Router();
 const Job = require("../models/Job");
 const upload = require("./../config/cloudinary");
-//  const requireAuth = require("../middlewares/requireAuth");
+const requireAuth = require("../middlewares/requireAuth");
 
  //http:localhost:4000/api/job (READ)
 router.get("/",     
@@ -19,7 +19,7 @@ router.get("/",     
 
 //http:localhost:4000/api/job (CREATE)
 router.post("/",     
-//requireAuth,
+requireAuth,
 upload.single("profileImg"),
 (req, res, next) => {
   Job.create(req.body)
@@ -33,7 +33,7 @@ upload.single("profileImg"),
 
 //http:localhost:4000/api/job (UPDATE)
 router.patch("/:id", 
-//requireAuth,
+requireAuth,
 upload.single("profileImg"),
 function (req, res, next) {
   Job.findByIdAndUpdate(req.params.id, req.body, { new: true })
@@ -46,7 +46,9 @@ function (req, res, next) {
 });
 
  //http:localhost:4000/api/job (DELETE)
-router.delete("/:id", function (req, res, next) {
+router.delete("/:id",
+requireAuth,
+function (req, res, next) {
  Job.findOneAndDelete(req.params.id)
     .then((respondApi) => {
       res.status(200).send("Job application successfully deleted!");
