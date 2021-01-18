@@ -17,9 +17,21 @@ router.get("/",     
     });
 });
 
+ //http:localhost:4000/api/job/:id (READ)
+ router.get("/:id",     
+ //requireAuth,
+ (req, res, next) => {
+   Job.findById(req.params.id)
+     .then((job) => {
+       res.status(200).json(job);
+     })
+     .catch((error) => {
+       next(error);
+     });
+ });
 //http:localhost:4000/api/job (CREATE)
 router.post("/",     
-requireAuth,
+//requireAuth,
 upload.single("profileImg"),
 (req, res, next) => {
   Job.create(req.body)
@@ -57,6 +69,24 @@ function (req, res, next) {
       console.log(error);
     });
 });
+
+//search bar find by company name
+//http:localhost:4000/api/search
+
+router.get("/search",
+//requireAuth,
+function (req, res, next) {
+  Job.find({ company : "IBM" })
+    .then((job) => {
+      res.status(200).json(job);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+});
+
+
+
 
 module.exports = router;
 

@@ -7,13 +7,12 @@ const jobSchema = new Schema(
     jobTitle: { type: String, required: true },
 
     jobDescription: String,
-    contactPerson: [
+    contactPerson:
       {
         name: String,
         phone: Number,
         email: String,
-      }
-    ],
+      },
     website: String,
     notes: String,
     status: {
@@ -21,7 +20,7 @@ const jobSchema = new Schema(
       enum: [
         "To Apply For",
         "CV sent",
-        "For Follow-up",
+        "To Follow-up",
         "For Interview",
         "For Job Offer",
         "Accepted",

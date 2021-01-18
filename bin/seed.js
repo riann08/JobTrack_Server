@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 
 const jobs = [
       {
-        company: "IBM",
+      company: "IBM",
       jobTitle: "Software Engineer",
       notes: "no notes",
       status: "To Apply For",
@@ -16,7 +16,8 @@ const jobs = [
         company: "Convergys",
       jobTitle: "Software Engineer",
       website: "www.convergys.com",
-      status: "For Follow-up"
+      status: "To Follow-up"
+
       }
      ]
 

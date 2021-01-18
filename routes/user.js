@@ -4,7 +4,7 @@ const User = require("../models/User");
 const upload = require("./../config/cloudinary");
 //const requireAuth = require("../middlewares/requireAuth");
 
- //http:localhost:4000/api/user (READ)
+ //http:localhost:4000/api/user/:id (READ)
 router.get("/",     
 //requireAuth,
 (req, res, next) => {
@@ -17,18 +17,32 @@ router.get("/",     
     });
 });
 
+
 //http:localhost:4000/api/user (CREATE)
 router.post("/",     
 //requireAuth,
 upload.single("profileImg"),
 (req, res, next) => {
   User.create(req.body)
-    .then((newUserAdded) => {
-      res.status(201).json(newUserAdded);
-    })
-    .catch((error) => {
-      next(error);
-    });
+  .then((newUserAdded) => {
+    res.status(201).json(newUserAdded);
+  })
+  .catch((error) => {
+    next(error);
+  });
+});
+
+//http:localhost:4000/api/user/:id (READ)
+router.get("/:id",     
+//requireAuth,
+(req, res, next) => {
+ User.findById(req.params.id).populate("jobs")
+   .then((user) => {
+     res.status(200).json(user);
+   })
+   .catch((error) => {
+     next(error);
+   });
 });
 
 //http:localhost:4000/api/user (UPDATE)
