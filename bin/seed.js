@@ -18,7 +18,51 @@ const jobs = [
       website: "www.convergys.com",
       status: "To Follow-up"
 
-      }
+      },
+      {
+        company: "Company 1",
+        jobTitle: "Product Manager",
+        notes: "no notes",
+        conactPerson: {name: "Betina Ang", email: "b.ang@company1.com"},
+        notes: "need to call",
+        status: "For Interview",
+        userId: ["60007b78547e18197f387324"]
+        }, 
+        {
+          company: "Company B",
+          jobTitle: "Product Manager",
+          notes: "hey",
+          conactPerson: {name: "Betina Ang", email: "b.ang@company1.com"},
+          notes: "need to call",
+          status: "For Interview",
+          userId: ["60007b78547e18197f387324"]
+          },
+        {
+            company: "Company 1",
+            jobTitle: "Product Manager",
+            notes: "no notes",
+            conactPerson: {name: "Betina Ang", email: "b.an@company1.com"},
+            notes: "need to call",
+            status: "Accepted",
+            userId: ["60007b78547e18197f387324"]
+            },
+            {
+              company: "Company 3",
+              jobTitle: "Product Owner",
+              notes: "no notes",
+              conactPerson: {name: "Bet Ang", email: "b.an@company1.com"},
+              notes: "need to call",
+              status: "CV Sent",
+              userId: ["60007b78547e18197f387324"]
+            },
+
+        {
+          company: "Convergys",
+        jobTitle: "Software Engineer",
+        website: "www.convergys.com",
+        status: "To Follow-up"
+  
+        }
      ]
 
 // const users = [
@@ -36,7 +80,7 @@ const jobs = [
 
 async function insertSamples() {
   try {
-    await Job.deleteMany();
+    //await Job.deleteMany();
     //await User.deleteMany();
     const inserted = await Job.insertMany(jobs);
     //const inserted = await User.insertMany(users);

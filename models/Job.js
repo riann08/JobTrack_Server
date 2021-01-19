@@ -19,7 +19,7 @@ const jobSchema = new Schema(
       type: String,
       enum: [
         "To Apply For",
-        "CV sent",
+        "CV Sent",
         "To Follow-up",
         "For Interview",
         "For Job Offer",
@@ -28,7 +28,7 @@ const jobSchema = new Schema(
       ],
     },
     cvSentDate: Date,
-    userId: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    userId: { type: Schema.Types.ObjectId, ref: "User" },
   },
   { timestamps: true }
 );
