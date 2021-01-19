@@ -16,7 +16,7 @@ const jobs = [
         company: "Convergys",
       jobTitle: "Software Engineer",
       website: "www.convergys.com",
-      status: "To Follow-up"
+      status: "To Follow-Up"
 
       },
       {
@@ -60,7 +60,7 @@ const jobs = [
           company: "Convergys",
         jobTitle: "Software Engineer",
         website: "www.convergys.com",
-        status: "To Follow-up"
+        status: "To Follow-Up"
   
         }
      ]

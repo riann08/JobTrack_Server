@@ -1,6 +1,18 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+var enu = {
+  values: [
+    "To Apply For",
+    "CV Sent",
+    "To Follow-Up",
+    "For Interview",
+    "For Job Offer",
+    "Accepted",
+    "Rejected",
+  ]
+}
+
 const jobSchema = new Schema(
   {
     company: { type: String, required: true },
@@ -17,15 +29,8 @@ const jobSchema = new Schema(
     notes: String,
     status: {
       type: String,
-      enum: [
-        "To Apply For",
-        "CV Sent",
-        "To Follow-up",
-        "For Interview",
-        "For Job Offer",
-        "Accepted",
-        "Rejected",
-      ],
+      enum: enu,
+      trim: true
     },
     cvSentDate: Date,
     userId: { type: Schema.Types.ObjectId, ref: "User" },
