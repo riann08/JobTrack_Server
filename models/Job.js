@@ -19,12 +19,9 @@ const jobSchema = new Schema(
     jobTitle: { type: String, required: true },
 
     jobDescription: String,
-    contactPerson:
-      {
-        name: String,
-        phone: Number,
-        email: String,
-      },
+    contactPerson_Name: String,
+    contactPerson_Phone: Number,
+    contactPerson_Email: String,
     website: String,
     notes: String,
     status: {

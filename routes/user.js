@@ -4,7 +4,7 @@ const User = require("../models/User");
 const upload = require("./../config/cloudinary");
 //const requireAuth = require("../middlewares/requireAuth");
 
- //http:localhost:4000/api/user/:id (READ)
+ //http:localhost:4000/api/user/ (READ)
 router.get("/",     
 //requireAuth,
 (req, res, next) => {
@@ -36,7 +36,7 @@ upload.single("profileImg"),
 router.get("/:id",     
 //requireAuth,
 (req, res, next) => {
- User.findById(req.params.id).populate("jobs")
+ User.findById(req.params.id)
    .then((user) => {
      res.status(200).json(user);
    })
