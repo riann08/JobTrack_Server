@@ -26,8 +26,10 @@ router.post(
   //requireAuth,
   //upload.single("profileImg"),
   async (req, res, next) => {
+    console.log(req.body);
     req.body.userId = req.session.currentUser;
     const newJob = await Job.create(req.body);
+    
     try {
       res.status(201).json(newJob);
     } catch (error) {
