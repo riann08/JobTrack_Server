@@ -60,16 +60,17 @@ function (req, res, next) {
 });
 
  //http:localhost:4000/api/user (DELETE)
-router.delete("/:id", 
+router.delete("/me", 
 //requireAuth, 
 function (req, res, next) {
- User.findOneAndDelete(req.params.id)
-    .then((respondApi) => {
-      res.status(200).send("User successfully deleted!");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+console.log("here" + req.session.currentUser)
+  User.findOneAndDelete(req.session.currentUser)
+     .then((respondApi) => {
+       res.status(200).send("User successfully deleted!");
+     })
+     .catch((error) => {
+       console.log(error);
+     });
 });
 
 module.exports = router;
