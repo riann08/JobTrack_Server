@@ -10,8 +10,8 @@ var enu = {
     "For Job Offer",
     "Accepted",
     "Rejected",
-  ]
-}
+  ],
+};
 
 const jobSchema = new Schema(
   {
@@ -23,11 +23,12 @@ const jobSchema = new Schema(
     contactPerson_Phone: Number,
     contactPerson_Email: String,
     website: String,
+    location: String,
     notes: String,
     status: {
       type: String,
       enum: enu,
-      trim: true
+      trim: true,
     },
     cvSentDate: Date,
     userId: { type: Schema.Types.ObjectId, ref: "User" },
