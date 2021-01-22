@@ -44,8 +44,8 @@ router.patch(
   //upload.single("profileImg"),
   function (req, res, next) {
     User.findByIdAndUpdate(req.params.id, req.body, { new: true })
-      .then((responseApi) => {
-        res.status(200).send("User information successfully updated!");
+      .then((dbRes) => {
+        res.status(200).send(dbRes);
       })
       .catch((error) => {
         console.log(error);
